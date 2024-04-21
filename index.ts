@@ -2,6 +2,8 @@
 
 import inquirer from "inquirer";
 
+import chalk from "chalk";
+
 const Currency : any = {
 
 USD : 1, // Base Currency
@@ -15,7 +17,7 @@ INR : 83.28 // Indian Rupees
 let person_answer =  await inquirer.prompt([{
 
      name : "from",
-     message : "Enter the Currency which you want to convert",
+     message : `${chalk.blue.italic`Enter the Currency which you want to convert`}`,
      type : "list",
      choices : ["USD", "PKR", "TAKA", "POUND", "CAD", "INR"]
 
@@ -24,7 +26,7 @@ let person_answer =  await inquirer.prompt([{
 {
 
     name : "to",
-    message : "Enter the Currency in which you want to convert",
+    message : `${chalk.blue.italic`Enter the Currency in which you want to convert`}`,
     type : "list",
     choices : ["USD", "PKR", "TAKA", "POUND", "CAD", "INR"]
 
@@ -33,7 +35,7 @@ let person_answer =  await inquirer.prompt([{
 {
 
     name : "amount",
-    message : "Enter Your Amount",
+    message : `${chalk.blue.italic`Enter Amount Here`}`,
     type : "number"
 }
 
@@ -45,6 +47,7 @@ let amount = person_answer.amount;
 let baseAmount = amount / fromAmount
 let convertedAmount = baseAmount * toAmount
 console.log(convertedAmount);
+console.log `${chalk.gray.bold.italic.underline`Thank You For Using S2bl Currency Converter App`}`;
 
 
 

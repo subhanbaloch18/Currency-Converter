@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
+import chalk from "chalk";
 const Currency = {
     USD: 1, // Base Currency
     PKR: 278.24, // Pakistani Rupees
@@ -10,19 +11,19 @@ const Currency = {
 };
 let person_answer = await inquirer.prompt([{
         name: "from",
-        message: "Enter the Currency which you want to convert",
+        message: `${chalk.blue.italic `Enter the Currency which you want to convert`}`,
         type: "list",
         choices: ["USD", "PKR", "TAKA", "POUND", "CAD", "INR"]
     },
     {
         name: "to",
-        message: "Enter the Currency in which you want to convert",
+        message: `${chalk.blue.italic `Enter the Currency in which you want to convert`}`,
         type: "list",
         choices: ["USD", "PKR", "TAKA", "POUND", "CAD", "INR"]
     },
     {
         name: "amount",
-        message: "Enter Your Amount",
+        message: `${chalk.blue.italic `Enter Amount Here`}`,
         type: "number"
     }
 ]);
@@ -32,3 +33,4 @@ let amount = person_answer.amount;
 let baseAmount = amount / fromAmount;
 let convertedAmount = baseAmount * toAmount;
 console.log(convertedAmount);
+console.log `${chalk.gray.bold.italic.underline `Thank You For Using S2bl Currency Converter App`}`;
